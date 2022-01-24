@@ -7,6 +7,7 @@ C / Rust / ...
     ↓ 
     ↓ 
 <mark>Processeur</mark>
+________________________
     ↑ 
 Transistor
     ↑ 
