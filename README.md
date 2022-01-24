@@ -20,3 +20,12 @@ Physique Quantique
 
 2. Logique / Circuit logique
     Manipulation de portes logiques
+
+
+### Addition binaires / Dépassement de capacités
+
+- + + => jamais de dépassement
+
++ + + => Dépassement si res < 0
+
+- + - => Dépassement si res > 0
