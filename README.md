@@ -1,16 +1,17 @@
 # Architecture des ordinateurs
 
-C / Rust / ...
-    ↓ 
-<mark>Assembleur</mark>
-    ↓ 
-    ↓ 
-    ↓ 
-<mark>Processeur</mark>
-________________________
-    ↑ 
-Transistor
-    ↑ 
+## Les Bases
+
+C / Rust / ... \
+    ↓ \
+<span style="color:red;font-weight:700;font-size:20px">Assembleur</span>\
+    ↓\
+    ↓\
+    ↓\
+<span style="color:red;font-weight:700;font-size:20px">Processeur</span>\
+    ↑\
+Transistor\
+    ↑\
 Physique Quantique
 
 ## 3 Phases
@@ -21,11 +22,10 @@ Physique Quantique
 2. Logique / Circuit logique
     Manipulation de portes logiques
 
-
 ### Addition binaires / Dépassement de capacités
 
-- + + => jamais de dépassement
+'- + +' => jamais de dépassement
 
-+ + + => Dépassement si res < 0
+'+ + +' => Dépassement si res < 0
 
-- + - => Dépassement si res > 0
+'- + -' => Dépassement si res > 0
