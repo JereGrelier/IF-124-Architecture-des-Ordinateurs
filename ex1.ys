@@ -1,0 +1,7 @@
+mrmovl a, %eax
+mrmovl b, %ebx
+rrmovl %eax, %ecx
+rrmovl %ebx, %eax
+rrmovl %ecx, %ebx
+rmmovl %eax, a
+rmmovl %ebx, b

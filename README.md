@@ -9,7 +9,9 @@ C / Rust / ... \
     ↓\
     ↓\
 <span style="color:red;font-weight:700;font-size:20px">Processeur</span>\
-    ↑\
+___
+
+    ↑
 Transistor\
     ↑\
 Physique Quantique
@@ -50,8 +52,17 @@ Soustraire : subl reg1, reg2
 
 iaddl : const, reg2\
 isubl : const, reg2\
-Avec des constantes...
+Avec des constantes... (i = immediate)
 
 Exemple :
 
 addl %eax, %ebx
+___
+
+m r movl addresse, reg ==> Copie de ce qui se trouve a l'addresse dans le registre
+
+r r movl reg1, reg2 ==> Reg 1 va dans reg2
+
+irmovl const, reg2 ==> Const va dans reg2
+
+rmmovl reg, addresse ==> Copie du registre en mémoire
