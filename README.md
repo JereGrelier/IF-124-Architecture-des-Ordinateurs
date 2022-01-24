@@ -22,10 +22,36 @@ Physique Quantique
 2. Logique / Circuit logique
     Manipulation de portes logiques
 
-### Addition binaires / Dépassement de capacités
+## Addition binaires / Dépassement de capacités
 
 '- + +' => jamais de dépassement
 
 '+ + +' => Dépassement si res < 0
 
 '- + -' => Dépassement si res > 0
+
+## L'assembleur
+
+CPU : Central Processing Unit contient des registres
+
+(Ici architecture particulière non exisante mais inspirée par d'autres architectures - Le Y86 - inspiré et simplifié du IA32)
+
+Registre IP : Instruction Pointer
+Exemples de nom de registres :
+
+- %eap
+- %abx
+- %ecx
+- %eai
+
+Additoner : addl reg1, reg2
+
+Soustraire : subl reg1, reg2
+
+iaddl : const, reg2\
+isubl : const, reg2\
+Avec des constantes...
+
+Exemple :
+
+addl %eax, %ebx
