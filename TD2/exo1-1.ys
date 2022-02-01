@@ -1,0 +1,21 @@
+# 1st Version exo 1
+.pos 0
+    irmovl 0, %eax
+    rmmovl %eax, i
+debut: 
+    mrmovl 10, %eax
+    isubl 10, %eax
+    jge fin
+    mrmovl sum, %eax
+    mrmovl i, %ebx
+    addl %ebx, %eax
+    rmmovl %eax, sum
+    mrmovl i, %eax
+    iaddl 1, %ebx
+    rmmovl %eax, i
+    jmp debut
+fin:
+    halt
+.pos 0x200
+sum: .long 0
+i: .long 0

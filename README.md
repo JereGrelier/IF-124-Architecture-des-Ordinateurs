@@ -9,9 +9,7 @@ C / Rust / ... \
     ↓\
     ↓\
 <span style="color:red;font-weight:700;font-size:20px">Processeur</span>\
-___
-
-    ↑
+    ↑\
 Transistor\
     ↑\
 Physique Quantique
