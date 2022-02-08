@@ -1,0 +1,23 @@
+.pos 0
+init:
+
+debut:
+    #eax = toto
+    mrmovl toto, %eax
+
+    #eax = &toto
+    irmovl toto %eax
+
+    #eax = *toto
+    mrmovl toto, %ecx
+    mrmovl (%ecx), %eax  
+
+fin:
+    halt
+
+.pos 0x200
+toto: .long 0x240
+
+.pos 0x240
+
+tata: .long 31415

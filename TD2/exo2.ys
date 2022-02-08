@@ -1,0 +1,25 @@
+        .pos 0
+init:   irmovl 1,%eax
+        rmmovl %eax,i
+        irmovl 1,%ebx
+        irmovl 1,%ecx
+        
+debut:  mrmovl i,%eax
+        isubl 13,%eax
+        jg fin
+        
+        rrmovl %ecx,%eax
+        addl %ebx,%ecx
+        rmmovl %ecx,res
+        rrmovl %eax,%ebx
+        
+        mrmovl i,%eax 
+        iaddl 1,%eax
+        rmmovl %eax,i
+        jmp debut
+        
+fin:    halt
+
+        .pos 0x100
+        res:  .long 0
+        i:  .long 0
