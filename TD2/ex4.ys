@@ -1,0 +1,27 @@
+        .pos 0
+init:   irmovl 0,%ecx #valeur de i
+        irmovl 0,%edi 
+        irmovl 4,%esi
+        
+debut:  mrmovl n,%ebx
+        rrmovl %ecx,%eax
+        iaddl 1,%eax
+        subl %ebx,%eax
+        jge fin
+        
+        mrmovl t(%esi),%eax
+        rmmovl %eax,t(%edi)
+        iaddl 4,%esi
+        iaddl 4,%edi
+        iaddl 1,%ecx
+        jmp debut
+        
+fin:    halt
+
+        .pos 0x60
+        n:  .long 4
+        t:  .long 1
+            .long 2
+            .long 3
+            .long 4
+

@@ -1,0 +1,55 @@
+.pos 0
+        
+debut:
+    irmovl t, %eax
+    rmmovl %eax, p
+    
+    mrmovl p, %eax
+    mrmovl n, %ebx
+    addl %ebx, %eax
+    rmmovl %eax, q
+    
+    
+    
+boucle:
+    mrmovl p, %esi
+    mrmovl q, %edx
+    
+    mrmovl (%esi), %ecx
+    rmmovl %ecx, (%edx)
+    
+    
+    iaddl 4, %edx
+    rmmovl %edx, q
+    
+    
+    
+    iaddl 4, %esi
+    rmmovl %esi, p
+    
+    
+    mrmovl (%esi), %edi
+    isubl 0, %edi
+    je end
+    
+    jmp boucle
+    
+end:
+    halt
+
+    
+    
+    .pos 0x200
+p: .long 0
+q: .long 0
+n: .long 20
+t: 
+    .long 1
+    .long 2
+    .long 3
+    .long 4
+    .long 0
+    .long 0
+    .long 0
+    .long 0
+    .long 0
