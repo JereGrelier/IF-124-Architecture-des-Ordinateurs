@@ -1,0 +1,13 @@
+#Empilement dans la pile
+.pos 0
+init: irmovl stack, %esp
+    irmovl 17, %eax
+    pushl %eax
+    irmovl 42, %eax
+    pushl %eax
+    irmovl 3, %eax
+    pushl %eax
+
+    halt
+    .pos 0x30
+    stack:

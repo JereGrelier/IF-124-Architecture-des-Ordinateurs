@@ -49,21 +49,20 @@ Exemples de nom de registres :
 - %ecx
 - %eai
 
-Additoner : addl reg1, reg2
+__Additoner__ : addl reg1, reg2
 
-Soustraire : subl reg1, reg2
+__Soustraire__ : subl reg1, reg2
 
-iaddl : const, reg2\
-isubl : const, reg2\
+__iaddl__ : const, reg2\
+__isubl__ : const, reg2\
 Avec des constantes... (i = immediate)
 
 Exemple :
-
-addl %eax, %ebx
+_addl %eax, %ebx_
 
 ---
 
-## Commandes
+### Commandes
 
 <br />
 addl reg1, reg2 -> reg2 = reg1 + reg2
@@ -103,7 +102,7 @@ jg <"debut"> -> goto <"debut"> si > 0
 ---
 <br />
 
-## Les pointeurs et les tableaux
+### Les pointeurs et les tableaux
 
 rmmovl %eax, 0x200
 
@@ -115,11 +114,11 @@ rmovl %eax, toto(%ecx) = adresse toto + %ecx
 ### Exemples : ( C ≡ Y86 )
 
 <br> <br>
-eax=toto; ≡ mrmovl toto, %eax
+"eax=toto;" ≡ mrmovl toto, %eax
 
-eax = &toto; ≡ irmovl toto, %eax
+"eax = &toto;" ≡ irmovl toto, %eax
 
-eax = *toto; ≡ mrmovl toto, %eax & mrmovl (%ecx), %eax
+"eax = *toto;" ≡ mrmovl toto, %eax & mrmovl (%ecx), %eax
 
 <br />
 
@@ -127,7 +126,7 @@ eax = *toto; ≡ mrmovl toto, %eax & mrmovl (%ecx), %eax
 
 <br />
 
-## La pile
+### La pile
 
 <br />
 
@@ -171,7 +170,7 @@ deux types de registres :
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 — registres « caller save » (« sauvegardés par l'appelant ») :
 ces registres sontlibrement utilisables
-par la fonction appelée, et doivent être sauvegardés si nécessaire par 
+par la fonction appelée, et doivent être sauvegardés si nécessaire par
 la fonction appelante. Ce
 sont les registres %eax, %ecx et %edx.
 
@@ -187,3 +186,29 @@ Le registre %esp est à part, car il est directement impliqué dans l'appel de f
 <br />
 
 ---
+
+### Appel de fonctions (TD-03)
+
+- __call f__ :
+Calcul de l'adresse de retour (adresse ligne suivante) et empilement
+puis jump dans f
+
+- __ret__ : Dépilement de l'adresse de retour puis _goto_ %esp (généralement adresse
+de retour)
+
+- __paramètres__ : empilement du paramètre sur la pile puis call.
+Le paramètre est recupéré a l'adresse du registre suivant (+ 4)
+si plusieurs paramètres : Définition de l'ordre de récupération : f(a,b) =>
+_Push b | push a_ (paramètre n°i : @esp + 4i)
+
+- __Fonctions récurrentes__ : On empile le nouveau paramètre à l'adresse
+de l'ancien paramètre
+
+⚠ : Si empilement avant ret : \
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - soit on popl la pile
+   jusqu'a retour au ret
+
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - soit on iaddl x a %esp pour
+   repointer sur l'adresse de retour
+
+## Les portes logiques

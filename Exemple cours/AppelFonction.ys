@@ -1,0 +1,18 @@
+.pos 0  
+init:   irmovl stack, %esp
+#Mise %eax en pile pour le passer en paramètre
+    pushl %eax
+    call f 
+#Calcul de l'adresse de retour (ici adresse du halt) et empilement puis jump dans f
+    popl %esi
+    halt
+
+f: 
+    mrmovl 4(%esp), %ebx #esp+4
+    irmovl 3, %eax
+    addl %ebx, %eax
+    ret
+#Dépilement de l'adresse de retour puis goto adresse de retour
+
+.pos 0x30
+    stack:

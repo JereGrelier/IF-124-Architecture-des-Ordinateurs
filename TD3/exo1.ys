@@ -1,0 +1,33 @@
+        .pos 0
+init:   irmovl stack ,%esp
+        jmp main1
+
+main1:  irmovl 2, %eax
+        pushl %eax
+        irmovl 1, %eax
+        pushl %eax
+        call f
+        rmmovl %edi, a
+        jmp main2
+        
+main2:
+        irmovl 4, %eax
+        pushl %eax
+        irmovl 3, %eax
+        pushl %eax
+        call f  
+        pushl %edi
+        pushl %ecx
+        call f
+        halt
+        
+f:
+    mrmovl 4(%esp), %ebx
+    mrmovl 8(%esp), %ecx
+    addl %ecx, %ebx
+    rrmovl %ebx, %edi
+    ret
+    
+        .pos 0x200
+stack:
+a: .long 0
