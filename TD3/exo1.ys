@@ -8,17 +8,39 @@ main1:  irmovl 2, %eax
         pushl %eax
         call f
         rmmovl %edi, a
-        jmp main2
+        halt
         
 main2:
+        irmovl 2, %eax
+        pushl %eax
+        irmovl 1, %eax
+        pushl %eax
+        call f
+        iaddl 8, %esp
+        rrmovl %eax, %ebx
         irmovl 4, %eax
         pushl %eax
         irmovl 3, %eax
         pushl %eax
-        call f  
-        pushl %edi
-        pushl %ecx
         call f
+        iaddl 8, %esp
+        addl %eax, %ebx
+        rmmovl %eax, a
+        halt
+
+main3: irmovl 2, %eax
+        pushl %eax
+        irmovl 1, %eax
+        pushl %eax
+        call f
+        iaddl 8, %esp
+        pushl %eax
+        irmovl 1, %eax
+        pushl %eax
+        call f
+        iaddl 8, %esp
+        addl %eax, %ebx
+        rmmovl %eax, a
         halt
         
 f:

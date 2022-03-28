@@ -211,4 +211,33 @@ de l'ancien paramètre
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - soit on iaddl x a %esp pour
    repointer sur l'adresse de retour
 
-## Les portes logiques
+## Etude détaillée du y86 -- HCL
+
+eax = rA
+
+intsig = #define
+
+fetch : Recupere l'instruction en mémoire et calcul du pc increment
+
+### Exemple ajout decl dans le hcl
+
+L’instruction decl %reg décrémente un registre, c’est-à-dire lui retranche 1.
+Elle est équivalente à l’instruction isubl 1, %reg, mais est censée prendre moins
+de place en mémoire, afin de réduire la taille
+des programmes qui l’utilisent.
+
+Ajout dans intsig
+Ajout dans need_regids
+
+### Exemple ncall
+
+fetch needreg {pushl};
+destE {
+   icode == PUSHL: rESP;
+}
+
+AluA icode == PUSHL : -4;
+
+alub icode == PUSHL: valB
+
+srcB icode == PUSHL: rESP;

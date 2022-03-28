@@ -1,0 +1,17 @@
+.pos 0
+#modulo (n, k)
+init: irmovl stack, %esp
+    mrmovl 4(%esp), %eax
+    mrmovl 8(%esp), %ecx
+    call debutModulo
+debutModulo:
+    rrmovl %eax, %edx
+    subl %ecx, %edx
+    jl finModulo
+    rrmovl %edx, %eax
+    jmp debutModulo
+finModulo:
+    halt
+
+.pos 0x200
+stack:

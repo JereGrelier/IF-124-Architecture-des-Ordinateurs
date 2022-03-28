@@ -1,0 +1,16 @@
+.pos 0
+f:  isubl 4, %esp
+    mrmovl 8(%esp), %eax
+    mrmovl 12(%esp), %ecx
+    addl %ecx, %eax
+    rmmovl %eax, (%esp)
+    pushl %ecx
+    call f
+    iaddl 4, %esp
+    mrmovl (%esp), %ecx
+    addl %ecx, %eax
+    iaddl 4, %esp
+    ret
+
+.pos 0x200
+stack:
