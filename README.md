@@ -242,6 +242,14 @@ alub icode == PUSHL: valB
 
 srcB icode == PUSHL: rESP;
 
+memWrite PUSHL;
+
+addr icode == PUSHL : valE;
+
+data  icode == PUSHL : valA;
+
+srcA icode == PUSHL rA;ù
+
 ## Les portes logiques
 
 ### TD05
